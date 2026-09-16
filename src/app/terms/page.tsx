@@ -69,9 +69,15 @@ export default function TermsPage() {
             Contact
           </h2>
           <p>
-            Max McCutcheon · Watchwire. Prefer GitHub for technical issues. These
-            terms will be revised if the company incorporates or offers formal
-            contracts.
+            Max McCutcheon · Watchwire ·{" "}
+            <a
+              className="text-[var(--accent)] hover:underline"
+              href="mailto:MaxMcCutcheon1@outlook.com"
+            >
+              MaxMcCutcheon1@outlook.com
+            </a>
+            . Prefer GitHub for technical issues. These terms will be revised
+            if the company incorporates or offers formal contracts.
           </p>
         </section>
       </div>

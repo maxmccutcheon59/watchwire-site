@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PricingCards from "@/components/PricingCards";
+import { productVersion, testCount } from "@/lib/site";
 
 const commands = [
   {
@@ -19,6 +20,21 @@ const commands = [
   },
 ];
 
+const integrations = [
+  {
+    title: "Pre-commit",
+    body: `Official hook id watchwire-scan — pin rev: ${productVersion}.`,
+  },
+  {
+    title: "GitHub Action",
+    body: `Composite action: uses maxmccutcheon59/watchwire@${productVersion} (scan + SARIF). Optional run-hygiene input (default false).`,
+  },
+  {
+    title: "Policy + packs + FP",
+    body: "watchwire.toml + examples/policies/{student,indie,small-team}.toml. Entropy FP filters UUIDs, hex digests, low-diversity base64.",
+  },
+];
+
 const steps = [
   {
     n: "01",
@@ -33,7 +49,7 @@ const steps = [
   {
     n: "03",
     title: "Wire into habit",
-    body: "Official pre-commit, GitHub Action, `watchwire.toml`, and entropy FP ship in v0.3.0 — gates that run in your runners, not a vendor upload of your tree to us.",
+    body: `Official pre-commit, GitHub Action, watchwire.toml, and entropy FP ship in ${productVersion} — gates that run in your runners, not a vendor upload of your tree to us.`,
   },
 ];
 
@@ -48,15 +64,15 @@ const faqs = [
   },
   {
     q: "Does anything leave my machine?",
-    a: "The CLI has no network clients or telemetry by design. Findings are redacted in output. Stripe Checkout on this site only handles payment if you choose a paid tier.",
+    a: "The CLI has no network clients or telemetry by design. Findings are redacted in output. Stripe Checkout (Vercel path only) handles payment if you choose a paid founding tier.",
   },
   {
     q: "Who is this for right now?",
-    a: "CS students, early-career engineers, and indie/solo Linux operators who want a demoable local check. Enterprise SecOps fleets and EDR replacements are out of scope for v0.",
+    a: "CS students and early-career engineers primarily; indie/solo Linux operators secondarily. Enterprise SecOps fleets and EDR replacements are out of scope for v0.",
   },
   {
     q: "Are the paid prices final?",
-    a: "No. ~$12/mo Builder and ~$39/seat/mo Team are packaging hypotheses from the commercialization brief — labeled founding / early OSS. Community remains $0.",
+    a: "No. ~$12/mo Builder and ~$39/seat/mo Team are packaging hypotheses — labeled founding / early OSS. Community remains $0 forever for the OSS core.",
   },
   {
     q: "Is this exploit / offensive tooling?",
@@ -71,7 +87,7 @@ export default function HomePage() {
       <section className="wire-grid relative overflow-hidden border-b border-[var(--border)]">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(93,255,159,0.08),_transparent_55%)]" />
         <div className="relative mx-auto max-w-6xl px-5 py-20 sm:py-28">
-          <p className="section-label mb-4">Local-first · Defensive · Early OSS</p>
+          <p className="section-label mb-4">Local-first · Defensive · Early OSS · {productVersion}</p>
           <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-[var(--text)] sm:text-5xl sm:leading-[1.1]">
             The local wire for secrets
             <span className="text-glow text-[var(--accent)]"> and host hygiene</span>
@@ -80,21 +96,24 @@ export default function HomePage() {
             Watchwire is a defensive CLI that finds leaked secrets (regex +
             entropy), summarizes Linux processes via{" "}
             <code className="font-mono text-sm text-[var(--accent)]">/proc</code>
-            , and flags risky permissions —{" "}
+            , and flags risky permissions — plus{" "}
+            <em className="not-italic text-[var(--text)]">
+              pre-commit, GitHub Action (optional run-hygiene), SARIF/JSON,
+              watchwire.toml, and policy packs
+            </em>{" "}
+            —{" "}
             <em className="not-italic text-[var(--text)]">
               without sending filesystem contents off-box
             </em>
             .
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <a
-              href="https://github.com/maxmccutcheon59/watchwire"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary"
-            >
-              View on GitHub
-            </a>
+            <Link href="/install" className="btn-primary">
+              Install &amp; demo
+            </Link>
+            <Link href="/product" className="btn-ghost">
+              Product
+            </Link>
             <Link href="/pricing" className="btn-ghost">
               Founding pricing
             </Link>
@@ -129,7 +148,9 @@ export default function HomePage() {
                 <span className="text-[var(--accent)]">watchwire hygiene</span> .
                 {"\n"}
                 <span className="text-[var(--text-dim)]">#</span>{" "}
-                <span className="text-[var(--text-dim)]">also: pre-commit hook · GitHub Action · --sarif</span>
+                <span className="text-[var(--text-dim)]">
+                  also: pre-commit · Action · --sarif · watchwire.toml
+                </span>
               </code>
             </pre>
           </div>
@@ -174,11 +195,14 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl px-5 py-16 sm:py-20">
           <p className="section-label mb-3">Three commands</p>
           <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-            Shipped v0.3.0 — scan · proc · hygiene · Action · pre-commit · policy
+            Shipped {productVersion} — scan · proc · hygiene
           </h2>
           <p className="mt-3 max-w-2xl text-[var(--text-muted)]">
             No network scan, no remote targets, no autofill, no agent. Heuristics
-            have false positives and negatives.
+            have false positives and negatives.{" "}
+            <Link href="/product" className="text-[var(--accent)] hover:underline">
+              Full product deep-dive →
+            </Link>
           </p>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {commands.map((c) => (
@@ -196,8 +220,36 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Action / pre-commit / policy */}
+      <section id="integrations" className="border-b border-[var(--border)] bg-[var(--bg-elevated)]">
+        <div className="mx-auto max-w-6xl px-5 py-16 sm:py-20">
+          <p className="section-label mb-3">CI · hooks · policy</p>
+          <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+            Action, pre-commit, and watchwire.toml — visible in {productVersion}
+          </h2>
+          <p className="mt-3 max-w-2xl text-[var(--text-muted)]">
+            Same local scanner in your runners. No Marketplace/SaaS claims.
+          </p>
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {integrations.map((item) => (
+              <div key={item.title} className="card p-5">
+                <h3 className="font-medium text-[var(--text)]">{item.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)]">
+                  {item.body}
+                </p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-6 text-sm">
+            <Link href="/install" className="text-[var(--accent)] hover:underline">
+              Copy-paste install, pre-commit, and Action examples →
+            </Link>
+          </p>
+        </div>
+      </section>
+
       {/* Local-first trust */}
-      <section className="border-b border-[var(--border)] bg-[var(--bg-elevated)]">
+      <section className="border-b border-[var(--border)]">
         <div className="mx-auto max-w-6xl px-5 py-16 sm:py-20">
           <p className="section-label mb-3">Local-first trust</p>
           <h2 className="max-w-2xl text-2xl font-semibold tracking-tight sm:text-3xl">
@@ -209,7 +261,7 @@ export default function HomePage() {
               "Redaction by default in findings output",
               "No HTTP clients / telemetry in the CLI by design",
               "CI-friendly exit codes; injectable /proc for tests",
-              "MIT license · v0.3.0 · 53 tests · CI across 3.10 / 3.12 / 3.13 · pre-commit + Action + SARIF + watchwire.toml",
+              `${productVersion} · ${testCount} tests · CI across 3.10 / 3.12 / 3.13 · pre-commit + Action + SARIF + policy packs`,
               "Paid path prefers policy on your runners — not “upload to Watchwire cloud”",
             ].map((line) => (
               <li
@@ -296,11 +348,14 @@ export default function HomePage() {
             surface — early, honest, defensive-only.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <Link href="/install" className="btn-primary">
+              Get started
+            </Link>
             <a
               href="https://github.com/maxmccutcheon59/watchwire"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary"
+              className="btn-ghost"
             >
               github.com/maxmccutcheon59/watchwire
             </a>

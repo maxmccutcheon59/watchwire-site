@@ -1,24 +1,26 @@
 # Watchwire marketing site
 
-For-profit company surface for **Watchwire** — a local-first defensive CLI (`scan` · `proc` · `hygiene`) with **v0.2.0** pre-commit + GitHub Action + SARIF/JSON.
+For-profit company surface for **Watchwire** — a local-first defensive CLI (`scan` · `proc` · `hygiene`) with **v0.4.0** pre-commit + GitHub Action (optional `run-hygiene`) + SARIF/JSON + `watchwire.toml` + policy packs.
 
 - **CLI repo:** https://github.com/maxmccutcheon59/watchwire  
-- **This site:** Next.js App Router + TypeScript + Tailwind + Stripe Checkout  
-- **Stage:** Pre-revenue · early OSS · founding pricing hypotheses (no fake traction)
+- **Release:** https://github.com/maxmccutcheon59/watchwire/releases/tag/v0.4.0  
+- **This site:** Next.js App Router + TypeScript + Tailwind  
+- **Stage:** Pre-revenue · early OSS · founding pricing hypotheses (no fake traction)  
+- **Contact:** MaxMcCutcheon1@outlook.com
 
 ## Stack
 
 - Next.js 15 (App Router)
 - TypeScript
 - Tailwind CSS v4
-- Stripe Checkout (Builder + Team subscriptions)
+- Stripe Checkout (Builder + Team) — **Vercel path only**
+- GitHub Pages static export — **zero keys** (primary public deploy)
 
 ## Local development
 
 ```bash
 cd watchwire-site
-cp .env.example .env.local
-# Fill STRIPE_SECRET_KEY (sk_test_...) at minimum for Checkout
+cp .env.example .env.local   # optional; needed only for Checkout
 npm install
 npm run dev
 ```
@@ -30,41 +32,36 @@ Open [http://localhost:3000](http://localhost:3000).
 | Command | Purpose |
 |---------|---------|
 | `npm run dev` | Dev server |
-| `npm run build` | Production build |
-| `npm start` | Serve production build |
+| `npm run build` | Production build (Vercel-style; includes `/api/checkout`) |
+| `npm run build:pages` | Static export for GitHub Pages (`out/`; API stashed) |
+| `npm start` | Serve production build (non-static) |
 | `npm run lint` | ESLint |
 
-## Stripe (test mode)
+## Deploy
+
+See **[DEPLOY.md](./DEPLOY.md)**.
+
+1. **Primary:** GitHub Pages — enable **Settings → Pages → Source: GitHub Actions** once. Site: `https://maxmccutcheon59.github.io/watchwire-site/`
+2. **Secondary:** Vercel + Stripe test keys when Checkout should work.
+
+## Stripe (test mode — Vercel / local only)
 
 1. Create a Stripe account and use **test** keys.
-2. Set in `.env.local`:
+2. Set in `.env.local` / Vercel:
    - `STRIPE_SECRET_KEY` — required for `/api/checkout`
-   - `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` — optional for future Elements; Checkout Session redirect works with secret key alone
-   - `STRIPE_PRICE_BUILDER` / `STRIPE_PRICE_TEAM` — optional Price IDs; if omitted, the API creates `price_data` at **$12/mo** and **$39/seat/mo**
-3. Click **Start Builder** or **Start Team** on `/pricing`.
-4. Use Stripe test card `4242 4242 4242 4242`, any future expiry, any CVC.
-5. Success → `/success`; cancel → `/cancel`.
-
-Without `STRIPE_SECRET_KEY`, Checkout returns **503** with a clear error (site still builds and browses).
-
-## Deploy (Vercel)
-
-1. Import `maxmccutcheon59/watchwire-site` in Vercel.
-2. Add env vars (production or test keys as appropriate):
-   - `STRIPE_SECRET_KEY`
-   - `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`
-   - `STRIPE_PRICE_BUILDER` (optional)
-   - `STRIPE_PRICE_TEAM` (optional)
-   - `NEXT_PUBLIC_SITE_URL` = your production URL (e.g. `https://watchwire.vercel.app`)
-3. Deploy. Framework preset: Next.js.
+   - `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` — optional
+   - `STRIPE_PRICE_BUILDER` / `STRIPE_PRICE_TEAM` — optional; else `price_data` at **$12/mo** and **$39/seat/mo**
+3. On GitHub Pages builds, Checkout CTAs degrade to mailto (no API route in static export).
 
 ## Pages
 
 | Path | Content |
 |------|---------|
-| `/` | Landing: hero, problem, commands, trust, how-it-works, pricing, FAQ |
-| `/pricing` | Community / Builder / Team |
-| `/api/checkout` | POST `{ "plan": "builder" \| "team" }` → Stripe Session URL |
+| `/` | Landing: hero, problem, commands, Action/pre-commit/policy, trust, pricing, FAQ |
+| `/product` | Deep-dive: three commands + Action + pre-commit + SARIF + watchwire.toml + policy packs |
+| `/install` | Real install / demo / CI copy-paste from product README |
+| `/pricing` | Community $0 · Builder/Team founding hypotheses |
+| `/api/checkout` | POST `{ "plan": "builder" \| "team" }` → Stripe Session URL (Vercel only) |
 | `/success` · `/cancel` | Checkout return pages |
 | `/privacy` · `/terms` | Honest pre-revenue stubs |
 
@@ -72,7 +69,9 @@ Without `STRIPE_SECRET_KEY`, Checkout returns **503** with a clear error (site s
 
 - No fake customers, logos, ARR, waitlists, or “trusted by”
 - Paid features labeled founding / roadmap honestly
+- Community $0 forever for OSS core
 - Defensive only — no offensive framing
+- Local-first / no telemetry claims stay accurate for the CLI
 
 ## License
 

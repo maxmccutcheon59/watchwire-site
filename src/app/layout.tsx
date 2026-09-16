@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { siteUrl } from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -14,21 +15,18 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-
 export const metadata: Metadata = {
   title: {
     default: "Watchwire — Local-first defensive CLI",
     template: "%s · Watchwire",
   },
   description:
-    "Local-first defensive security CLI: scan secrets (regex + entropy), inspect /proc, flag risky permissions — without sending your tree off-box. Early OSS · pre-revenue · founder-built.",
+    "Local-first defensive CLI (v0.4.0): secret scan, /proc, permission hygiene — plus pre-commit, GitHub Action (optional run-hygiene), SARIF/JSON, watchwire.toml, and policy packs — without sending filesystem contents off-box. Early OSS · pre-revenue.",
   metadataBase: new URL(siteUrl),
   openGraph: {
     title: "Watchwire — Local-first defensive CLI",
     description:
-      "Scan secrets, inspect /proc, flag risky permissions — on-box, auditable, no telemetry.",
+      "Scan secrets, inspect /proc, flag risky permissions — on-box, auditable, no telemetry. v0.4.0 · pre-commit · Action · policy packs.",
     type: "website",
     url: siteUrl,
     siteName: "Watchwire",
@@ -37,7 +35,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Watchwire — Local-first defensive CLI",
     description:
-      "Scan secrets, inspect /proc, flag risky permissions — on-box, auditable, no telemetry. Early OSS · pre-revenue.",
+      "Scan secrets, inspect /proc, flag risky permissions — on-box, auditable, no telemetry. Early OSS · pre-revenue · v0.4.0.",
   },
 };
 

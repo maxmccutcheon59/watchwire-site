@@ -1,18 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import SessionIdNote from "@/components/SessionIdNote";
 
 export const metadata: Metadata = {
   title: "Checkout success",
 };
 
-export default async function SuccessPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ session_id?: string }>;
-}) {
-  const params = await searchParams;
-  const sessionId = params.session_id;
-
+export default function SuccessPage() {
   return (
     <div className="mx-auto max-w-lg px-5 py-24 text-center">
       <p className="section-label mb-3">Stripe</p>
@@ -23,11 +17,7 @@ export default async function SuccessPage({
         Thanks for supporting Watchwire at founding pricing. The OSS CLI stays
         local-first — paid features will land honestly as they ship.
       </p>
-      {sessionId && (
-        <p className="mt-4 break-all font-mono text-xs text-[var(--text-dim)]">
-          session: {sessionId}
-        </p>
-      )}
+      <SessionIdNote />
       <div className="mt-8 flex flex-wrap justify-center gap-3">
         <a
           href="https://github.com/maxmccutcheon59/watchwire"
