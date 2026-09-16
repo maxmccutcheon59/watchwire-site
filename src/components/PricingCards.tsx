@@ -9,11 +9,11 @@ const tiers = [
     period: "forever",
     badge: "OSS core",
     description:
-      "The local CLI you can run today — scan, proc, hygiene. MIT-licensed.",
+      "The local CLI + CI hooks you can run today — MIT, v0.2.0.",
     features: [
       "watchwire scan · proc · hygiene",
-      "Pre-commit & GitHub Action (shipping / roadmap)",
-      "JSON / SARIF output (roadmap)",
+      "Official pre-commit hook (shipped)",
+      "Composite GitHub Action + SARIF/JSON (shipped)",
       "No telemetry · no upload",
       "Full source on GitHub",
     ],

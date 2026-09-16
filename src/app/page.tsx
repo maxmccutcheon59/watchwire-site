@@ -3,9 +3,9 @@ import PricingCards from "@/components/PricingCards";
 
 const commands = [
   {
-    cmd: "watchwire scan PATH",
+    cmd: "watchwire scan PATH [--json|--sarif]",
     title: "scan",
-    body: "Secret leak scan with regex + Shannon entropy. Redacted findings. Exit 1 on hits — CI-friendly.",
+    body: "Secret leak scan with regex + Shannon entropy. Redacted findings. Exit 1 on hits. JSON + SARIF 2.1.0.",
   },
   {
     cmd: "watchwire proc [pid]",
@@ -33,7 +33,7 @@ const steps = [
   {
     n: "03",
     title: "Wire into habit",
-    body: "Pre-commit and GitHub Action are on the ship list — gates that run in your runners, not a vendor upload of your tree to us.",
+    body: "Official pre-commit hook + composite GitHub Action ship in v0.2.0 — gates that run in your runners, not a vendor upload of your tree to us.",
   },
 ];
 
@@ -127,6 +127,9 @@ export default function HomePage() {
                 {"\n"}
                 <span className="text-[var(--text-dim)]">$</span>{" "}
                 <span className="text-[var(--accent)]">watchwire hygiene</span> .
+                {"\n"}
+                <span className="text-[var(--text-dim)]">#</span>{" "}
+                <span className="text-[var(--text-dim)]">also: pre-commit hook · GitHub Action · --sarif</span>
               </code>
             </pre>
           </div>
@@ -171,7 +174,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl px-5 py-16 sm:py-20">
           <p className="section-label mb-3">Three commands</p>
           <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-            Honest v0 scope — scan · proc · hygiene
+            Shipped v0.2.0 — scan · proc · hygiene · Action · pre-commit
           </h2>
           <p className="mt-3 max-w-2xl text-[var(--text-muted)]">
             No network scan, no remote targets, no autofill, no agent. Heuristics
@@ -206,7 +209,7 @@ export default function HomePage() {
               "Redaction by default in findings output",
               "No HTTP clients / telemetry in the CLI by design",
               "CI-friendly exit codes; injectable /proc for tests",
-              "MIT license · 26 tests · Actions CI across 3.10 / 3.12 / 3.13",
+              "MIT license · v0.2.0 · 35 tests · CI across 3.10 / 3.12 / 3.13 · pre-commit + Action + SARIF",
               "Paid path prefers policy on your runners — not “upload to Watchwire cloud”",
             ].map((line) => (
               <li

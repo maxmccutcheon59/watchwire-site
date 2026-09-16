@@ -1,6 +1,6 @@
 # Watchwire marketing site
 
-For-profit company surface for **Watchwire** — a local-first defensive CLI (`scan` · `proc` · `hygiene`).
+For-profit company surface for **Watchwire** — a local-first defensive CLI (`scan` · `proc` · `hygiene`) with **v0.2.0** pre-commit + GitHub Action + SARIF/JSON.
 
 - **CLI repo:** https://github.com/maxmccutcheon59/watchwire  
 - **This site:** Next.js App Router + TypeScript + Tailwind + Stripe Checkout  
