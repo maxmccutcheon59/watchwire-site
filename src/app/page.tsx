@@ -33,7 +33,7 @@ const steps = [
   {
     n: "03",
     title: "Wire into habit",
-    body: "Official pre-commit hook + composite GitHub Action ship in v0.2.0 — gates that run in your runners, not a vendor upload of your tree to us.",
+    body: "Official pre-commit, GitHub Action, `watchwire.toml`, and entropy FP ship in v0.3.0 — gates that run in your runners, not a vendor upload of your tree to us.",
   },
 ];
 
@@ -174,7 +174,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl px-5 py-16 sm:py-20">
           <p className="section-label mb-3">Three commands</p>
           <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-            Shipped v0.2.0 — scan · proc · hygiene · Action · pre-commit
+            Shipped v0.3.0 — scan · proc · hygiene · Action · pre-commit · policy
           </h2>
           <p className="mt-3 max-w-2xl text-[var(--text-muted)]">
             No network scan, no remote targets, no autofill, no agent. Heuristics
@@ -209,7 +209,7 @@ export default function HomePage() {
               "Redaction by default in findings output",
               "No HTTP clients / telemetry in the CLI by design",
               "CI-friendly exit codes; injectable /proc for tests",
-              "MIT license · v0.2.0 · 35 tests · CI across 3.10 / 3.12 / 3.13 · pre-commit + Action + SARIF",
+              "MIT license · v0.3.0 · 53 tests · CI across 3.10 / 3.12 / 3.13 · pre-commit + Action + SARIF + watchwire.toml",
               "Paid path prefers policy on your runners — not “upload to Watchwire cloud”",
             ].map((line) => (
               <li
