@@ -14,6 +14,9 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+
 export const metadata: Metadata = {
   title: {
     default: "Watchwire — Local-first defensive CLI",
@@ -21,14 +24,20 @@ export const metadata: Metadata = {
   },
   description:
     "Local-first defensive security CLI: scan secrets (regex + entropy), inspect /proc, flag risky permissions — without sending your tree off-box. Early OSS · pre-revenue · founder-built.",
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
-  ),
+  metadataBase: new URL(siteUrl),
   openGraph: {
     title: "Watchwire — Local-first defensive CLI",
     description:
       "Scan secrets, inspect /proc, flag risky permissions — on-box, auditable, no telemetry.",
     type: "website",
+    url: siteUrl,
+    siteName: "Watchwire",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Watchwire — Local-first defensive CLI",
+    description:
+      "Scan secrets, inspect /proc, flag risky permissions — on-box, auditable, no telemetry. Early OSS · pre-revenue.",
   },
 };
 
