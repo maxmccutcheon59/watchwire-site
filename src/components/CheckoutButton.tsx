@@ -37,8 +37,9 @@ export default function CheckoutButton({
           Email about {plan === "builder" ? "Builder" : "Team"}
         </a>
         <p className="mt-2 text-center text-[10px] leading-relaxed text-[var(--text-dim)]">
-          Stripe Checkout needs the Vercel deploy (API route). This Pages build
-          shows pricing only — founding hypotheses, not a live storefront.
+          Stripe Checkout needs the Vercel deploy (API route) and stays in test
+          mode until Max is ready. This Pages build shows founding hypotheses
+          only — not a live storefront.
         </p>
       </div>
     );

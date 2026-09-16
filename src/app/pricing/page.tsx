@@ -4,7 +4,7 @@ import PricingCards from "@/components/PricingCards";
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Watchwire founding pricing hypotheses: Community $0, Builder ~$12/mo, Team ~$39/seat/mo. Early OSS — honest labels.",
+    "Watchwire founding pricing hypotheses: Community $0 forever, Builder ~$12/mo, Team ~$39/seat/mo. Early OSS — honest labels.",
 };
 
 export default function PricingPage() {
@@ -15,10 +15,12 @@ export default function PricingPage() {
         Founding pricing — labeled honestly
       </h1>
       <p className="mt-4 max-w-2xl text-[var(--text-muted)]">
-        Watchwire is pre-revenue early OSS. Paid tiers exist as packaging
-        hypotheses so founding supporters can pay when features land — not as a
-        claim that SaaS is shipped today. Enterprise = problem framing + roadmap
-        only.
+        Watchwire is pre-revenue early OSS. Paid tiers are packaging hypotheses
+        from the commercialization pack — not live SKUs with customers. Prefer
+        selling policy + packaging on{" "}
+        <strong className="font-medium text-[var(--text)]">your runners</strong>{" "}
+        over uploading a repo to a Watchwire cloud. No fake traction, ARR,
+        waitlists, or enterprise SLA claims.
       </p>
       <div className="mt-12">
         <PricingCards showNote={false} />
@@ -28,18 +30,24 @@ export default function PricingPage() {
         <div className="card p-6">
           <h2 className="text-lg font-medium">What you get today</h2>
           <p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)]">
-            The Community CLI is real:{" "}
+            Community is the full OSS CLI v0.4.0:{" "}
             <code className="font-mono text-xs text-[var(--accent)]">scan</code>,{" "}
             <code className="font-mono text-xs text-[var(--accent)]">proc</code>,{" "}
-            <code className="font-mono text-xs text-[var(--accent)]">hygiene</code>.
-            Builder and Team checkout charges founding amounts; some listed
-            features are roadmap and labeled as such on the cards.
+            <code className="font-mono text-xs text-[var(--accent)]">hygiene</code>,
+            pre-commit, Action, SARIF/JSON,{" "}
+            <code className="font-mono text-xs text-[var(--accent)]">watchwire.toml</code>,
+            policy packs, entropy FP. Builder and Team remain founding
+            hypotheses — sell only after real solo / team demand; some listed
+            features are roadmap and labeled as such.
           </p>
         </div>
         <div className="card p-6">
           <h2 className="text-lg font-medium">Checkout availability</h2>
           <p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)]">
-            Live Stripe Checkout needs the <strong className="font-medium text-[var(--text)]">Vercel</strong>{" "}
+            Stripe stays in{" "}
+            <strong className="font-medium text-[var(--text)]">test mode</strong>{" "}
+            until Max is ready for live charges. Live Checkout needs the{" "}
+            <strong className="font-medium text-[var(--text)]">Vercel</strong>{" "}
             deploy with <code className="font-mono text-xs">STRIPE_SECRET_KEY</code>.
             On <strong className="font-medium text-[var(--text)]">GitHub Pages</strong>{" "}
             (static export), paid CTAs degrade to email — pricing is still shown

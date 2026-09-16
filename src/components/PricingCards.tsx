@@ -9,7 +9,7 @@ const tiers = [
     period: "forever",
     badge: "OSS core",
     description:
-      "The local CLI + CI hooks you can run today — MIT, v0.4.0.",
+      "Full OSS CLI v0.4.0 — MIT, local-first, no telemetry. Always free.",
     features: [
       "watchwire scan · proc · hygiene",
       "Official pre-commit hook (shipped)",
@@ -28,13 +28,13 @@ const tiers = [
     period: "/mo",
     badge: "Founding · hypothesis",
     description:
-      "For solo operators who want early paid features when they ship. Not sold as finished SaaS.",
+      "Community + priority pattern updates when live + private founder support + early Builder features. Sell only after real solo demand.",
     features: [
       "Everything in Community",
       "Priority pattern updates (when live)",
       "Private founder support channel",
       "Early access to Builder features",
-      "Honest early-OSS pricing",
+      "Honest early-OSS / founding label",
     ],
     cta: { type: "checkout" as const, plan: "builder" as const, label: "Start Builder (Stripe)" },
     highlight: true,
@@ -46,13 +46,13 @@ const tiers = [
     period: "/seat/mo",
     badge: "Founding · hypothesis",
     description:
-      "Shared policy packs and org baselines — roadmap until real team pull. Priced as a founding hypothesis.",
+      "Shared policy packs / org baselines (roadmap). CI on your runners first; local stays the default forever. Only after a team asks unprompted.",
     features: [
       "Everything in Builder",
       "Shared policy packs (roadmap)",
       "Org baseline config (roadmap)",
-      "CI on your runners first",
-      "Local-first stays the default",
+      "CI / policy packaging on your runners first",
+      "Local-first stays the default forever",
     ],
     cta: { type: "checkout" as const, plan: "team" as const, label: "Start Team (Stripe)" },
     highlight: false,
@@ -68,9 +68,10 @@ export default function PricingCards({ showNote = true }: { showNote?: boolean }
           <strong className="font-medium text-[var(--text)]">
             founding / early-OSS hypotheses
           </strong>{" "}
-          from the commercialization pack (~$12/mo Builder, ~$39/seat/mo Team).
-          Community stays free. No fake customers — checkout exists so Max can
-          take real founding payments when someone asks.
+          (~$12/mo Builder, ~$39/seat/mo Team). Community stays $0 forever. No
+          fake customers, ARR, waitlists, or SLA claims — checkout exists so Max
+          can take real founding payments when someone asks. Prefer policy +
+          packaging on your runners over uploading a tree to a Watchwire cloud.
         </p>
       )}
       <div className="grid gap-5 md:grid-cols-3">

@@ -30,12 +30,21 @@ export const metadata: Metadata = {
     type: "website",
     url: siteUrl,
     siteName: "Watchwire",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Watchwire — Local-first defensive CLI",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Watchwire — Local-first defensive CLI",
     description:
       "Scan secrets, inspect /proc, flag risky permissions — on-box, auditable, no telemetry. Early OSS · pre-revenue · v0.4.0.",
+    images: ["/og.png"],
   },
 };
 
@@ -49,8 +58,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
         <Header />
-        <main className="min-h-[70vh]">{children}</main>
+        <main id="main-content" className="min-h-[70vh]">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

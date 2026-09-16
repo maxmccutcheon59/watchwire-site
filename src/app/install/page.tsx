@@ -1,30 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { cliRepo, productVersion } from "@/lib/site";
+import Terminal from "@/components/Terminal";
+import { cliRepo, cliRelease, productVersion } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Install",
   description:
     "Install Watchwire v0.4.0: clone, pip install -e, 2-minute demo, policy packs, pre-commit, and GitHub Action (optional run-hygiene).",
 };
-
-function Terminal({ title, children }: { title: string; children: string }) {
-  return (
-    <div className="terminal mt-4">
-      <div className="terminal-bar">
-        <span className="terminal-dot" />
-        <span className="terminal-dot" />
-        <span className="terminal-dot" />
-        <span className="ml-3 font-mono text-xs text-[var(--text-dim)]">
-          {title}
-        </span>
-      </div>
-      <pre className="overflow-x-auto p-4 text-[var(--text-muted)]">
-        <code>{children}</code>
-      </pre>
-    </div>
-  );
-}
 
 export default function InstallPage() {
   return (
@@ -49,6 +32,14 @@ export default function InstallPage() {
               className="btn-primary"
             >
               CLI repository
+            </a>
+            <a
+              href={cliRelease}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-ghost"
+            >
+              Release {productVersion}
             </a>
             <Link href="/product" className="btn-ghost">
               Product deep-dive

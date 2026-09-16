@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { contactEmail, cliRepo } from "@/lib/site";
+import { contactEmail, cliRepo, cliRelease, productVersion } from "@/lib/site";
 
 export default function Footer() {
   return (
@@ -16,7 +16,15 @@ export default function Footer() {
             flag risky permissions — without sending your tree off-box.
           </p>
           <p className="mt-3 text-xs text-[var(--text-dim)]">
-            Founder: Max McCutcheon · Pre-revenue · Early OSS · MIT · v0.4.0
+            Founder: Max McCutcheon · Pre-revenue · Early OSS · MIT ·{" "}
+            <a
+              href={cliRelease}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[var(--accent)] hover:underline"
+            >
+              {productVersion}
+            </a>
           </p>
           <p className="mt-2 text-xs text-[var(--text-muted)]">
             Contact:{" "}
@@ -57,6 +65,16 @@ export default function Footer() {
                   className="hover:text-[var(--accent)]"
                 >
                   CLI on GitHub
+                </a>
+              </li>
+              <li>
+                <a
+                  href={cliRelease}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[var(--accent)]"
+                >
+                  Release {productVersion}
                 </a>
               </li>
               <li>

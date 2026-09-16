@@ -147,3 +147,34 @@ a {
   background: rgba(93, 255, 159, 0.25);
   color: #fff;
 }
+
+/* Skip link — visible on focus for keyboard / a11y */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100px;
+  z-index: 100;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #041008;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  transition: top 0.15s ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
+  outline: 2px solid var(--text);
+  outline-offset: 2px;
+}
+
+/* Horizontal scroll nav on narrow viewports */
+.nav-scroll {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.nav-scroll::-webkit-scrollbar {
+  display: none;
+}

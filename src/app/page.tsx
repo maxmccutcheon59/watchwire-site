@@ -56,7 +56,7 @@ const steps = [
 const faqs = [
   {
     q: "Is Watchwire a SaaS secret scanner?",
-    a: "No. Today it is a local-first OSS CLI. Paid Builder/Team tiers are founding hypotheses for policy + packaging later — local stays the default.",
+    a: "No. Today it is a local-first OSS CLI. Paid Builder/Team tiers are founding hypotheses for policy + packaging on your runners later — local stays the default. We are not a SaaS upload scanner.",
   },
   {
     q: "Do you beat gitleaks or TruffleHog on coverage?",
@@ -72,7 +72,7 @@ const faqs = [
   },
   {
     q: "Are the paid prices final?",
-    a: "No. ~$12/mo Builder and ~$39/seat/mo Team are packaging hypotheses — labeled founding / early OSS. Community remains $0 forever for the OSS core.",
+    a: "No. ~$12/mo Builder and ~$39/seat/mo Team are packaging hypotheses — labeled founding / early OSS. Community remains $0 forever for the full OSS CLI v0.4.0. Stripe stays in test mode until Max is ready for live charges.",
   },
   {
     q: "Is this exploit / offensive tooling?",
