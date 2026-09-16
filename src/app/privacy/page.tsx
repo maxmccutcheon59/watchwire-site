@@ -72,9 +72,15 @@ export default function PrivacyPage() {
             Contact
           </h2>
           <p>
-            Founder: Max McCutcheon. Prefer GitHub issues on the Watchwire repo
-            for product questions. This page will be expanded if/when the
-            company collects more data.
+            Founder: Max McCutcheon ·{" "}
+            <a
+              className="text-[var(--accent)] hover:underline"
+              href="mailto:MaxMcCutcheon1@outlook.com"
+            >
+              MaxMcCutcheon1@outlook.com
+            </a>
+            . Prefer GitHub issues on the Watchwire repo for product questions.
+            This page will be expanded if/when the company collects more data.
           </p>
         </section>
       </div>

@@ -1,17 +1,21 @@
 import type { MetadataRoute } from "next";
+import { siteUrl } from "@/lib/site";
 
-const baseUrl = (
-  process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
-).replace(/\/$/, "");
+export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const paths = ["", "/pricing", "/privacy", "/terms"];
+  const paths = ["", "/product", "/install", "/pricing", "/privacy", "/terms"];
   const lastModified = new Date();
 
   return paths.map((path) => ({
-    url: `${baseUrl}${path || "/"}`,
+    url: `${siteUrl}${path || "/"}`,
     lastModified,
     changeFrequency: path === "" ? "weekly" : "monthly",
-    priority: path === "" ? 1 : path === "/pricing" ? 0.8 : 0.4,
+    priority:
+      path === ""
+        ? 1
+        : path === "/product" || path === "/install" || path === "/pricing"
+          ? 0.8
+          : 0.4,
   }));
 }

@@ -15,16 +15,22 @@ export default function Header() {
             Watchwire
           </span>
         </Link>
-        <nav className="flex items-center gap-1 sm:gap-2 text-sm text-[var(--text-muted)]">
+        <nav className="flex items-center gap-0.5 sm:gap-1 text-sm text-[var(--text-muted)]">
           <Link
-            href="/#commands"
-            className="hidden rounded-md px-3 py-1.5 hover:text-[var(--text)] sm:inline"
+            href="/product"
+            className="rounded-md px-2.5 py-1.5 hover:text-[var(--text)] sm:px-3"
           >
-            Commands
+            Product
+          </Link>
+          <Link
+            href="/install"
+            className="rounded-md px-2.5 py-1.5 hover:text-[var(--text)] sm:px-3"
+          >
+            Install
           </Link>
           <Link
             href="/pricing"
-            className="rounded-md px-3 py-1.5 hover:text-[var(--text)]"
+            className="rounded-md px-2.5 py-1.5 hover:text-[var(--text)] sm:px-3"
           >
             Pricing
           </Link>

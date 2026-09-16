@@ -37,12 +37,13 @@ export default function PricingPage() {
           </p>
         </div>
         <div className="card p-6">
-          <h2 className="text-lg font-medium">Stripe test mode</h2>
+          <h2 className="text-lg font-medium">Checkout availability</h2>
           <p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)]">
-            Set <code className="font-mono text-xs">STRIPE_SECRET_KEY</code> and
-            optional Price IDs in env. Without Price IDs, Checkout creates
-            price_data at $12 and $39 respectively. Use Stripe test cards
-            locally — see README.
+            Live Stripe Checkout needs the <strong className="font-medium text-[var(--text)]">Vercel</strong>{" "}
+            deploy with <code className="font-mono text-xs">STRIPE_SECRET_KEY</code>.
+            On <strong className="font-medium text-[var(--text)]">GitHub Pages</strong>{" "}
+            (static export), paid CTAs degrade to email — pricing is still shown
+            as founding hypotheses. See DEPLOY.md.
           </p>
         </div>
       </div>

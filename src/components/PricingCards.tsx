@@ -9,13 +9,13 @@ const tiers = [
     period: "forever",
     badge: "OSS core",
     description:
-      "The local CLI + CI hooks you can run today — MIT, v0.3.0.",
+      "The local CLI + CI hooks you can run today — MIT, v0.4.0.",
     features: [
       "watchwire scan · proc · hygiene",
       "Official pre-commit hook (shipped)",
-      "Composite GitHub Action + SARIF/JSON (shipped)",
-      "`watchwire.toml` policy + entropy FP pass (shipped)",
-      "No telemetry · no upload",
+      "Composite GitHub Action + SARIF/JSON + optional run-hygiene (shipped)",
+      "`watchwire.toml` + student/indie/small-team policy packs (shipped)",
+      "Entropy FP pass · no telemetry · no upload",
       "Full source on GitHub",
     ],
     cta: { type: "link" as const, href: "https://github.com/maxmccutcheon59/watchwire", label: "Get the CLI" },
