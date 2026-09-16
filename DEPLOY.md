@@ -20,7 +20,8 @@ After the next successful `Deploy GitHub Pages` workflow on `main`, the site is 
 
 ### How the workflow works
 
-- File: `.github/workflows/pages.yml`
+- Canonical copy in-repo: `docs/pages.yml` (also installed as `.github/workflows/pages.yml` on this branch)
+- If your local CLI token lacks the `workflow` scope, push the YAML via the GitHub UI or a PAT that includes **workflow**, then enable Pages as below
 - Triggers: push to `main`, or **workflow_dispatch**
 - Runs `npm run build:pages` with `BASE_PATH=/watchwire-site`
 - Uploads the `out/` directory via `actions/upload-pages-artifact` + `actions/deploy-pages`
