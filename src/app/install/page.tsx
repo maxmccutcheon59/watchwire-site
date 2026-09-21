@@ -1,30 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { cliRepo, productVersion } from "@/lib/site";
+import Terminal from "@/components/Terminal";
+import { cliRepo, cliRelease, productVersion } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Install",
   description:
-    "Install Watchwire v0.4.0: clone, pip install -e, 2-minute demo, policy packs, pre-commit, and GitHub Action (optional run-hygiene).",
+    "Install Watchwire v0.5.0: clone, pip install -e, 2-minute demo, policy packs, pre-commit, and GitHub Action (optional run-hygiene).",
 };
 
-function Terminal({ title, children }: { title: string; children: string }) {
-  return (
-    <div className="terminal mt-4">
-      <div className="terminal-bar">
-        <span className="terminal-dot" />
-        <span className="terminal-dot" />
-        <span className="terminal-dot" />
-        <span className="ml-3 font-mono text-xs text-[var(--text-dim)]">
-          {title}
-        </span>
-      </div>
-      <pre className="overflow-x-auto p-4 text-[var(--text-muted)]">
-        <code>{children}</code>
-      </pre>
-    </div>
-  );
-}
 
 export default function InstallPage() {
   return (
@@ -185,6 +169,34 @@ watchwire scan . --config examples/policies/small-team.toml`}
             </a>
             .
           </p>
+        </div>
+      </section>
+
+      <section className="border-b border-[var(--border)]">
+        <div className="mx-auto max-w-3xl px-5 py-16 sm:py-20">
+          <p className="section-label mb-3">v0.5 · Local OSS layer</p>
+          <h2 className="text-2xl font-semibold tracking-tight">
+            Init, ignore, staged scan
+          </h2>
+          <p className="mt-3 text-sm text-[var(--text-muted)]">
+            Shipped in {productVersion}: local policy bootstrap and staged-only
+            scanning. Pin Action / pre-commit to{" "}
+            <a
+              href={cliRelease}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[var(--accent)] hover:underline"
+            >
+              {productVersion}
+            </a>
+            . Suppressions are an explicit local allowlist — review entries
+            (see CLI COMPLIANCE_NOTES).
+          </p>
+          <Terminal title="v0.5">
+{`watchwire init
+watchwire scan .
+watchwire scan --staged`}
+          </Terminal>
         </div>
       </section>
 

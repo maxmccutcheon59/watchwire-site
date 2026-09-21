@@ -94,3 +94,8 @@ npm run build:pages          # Pages-style static export
 ```
 
 Both builds must succeed.
+
+## Security headers (GitHub Pages)
+
+GitHub Pages sets **HSTS** at the edge. Custom headers (CSP, X-Frame-Options, etc.) are **not** configurable for user Pages without a reverse proxy. Documented limitation.
+
