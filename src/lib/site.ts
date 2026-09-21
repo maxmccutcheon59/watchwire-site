@@ -25,6 +25,6 @@ export const contactEmail = "MaxMcCutcheon1@outlook.com";
 
 export const cliRepo = "https://github.com/maxmccutcheon59/watchwire";
 export const cliRelease =
-  "https://github.com/maxmccutcheon59/watchwire/releases/tag/v0.4.0";
-export const productVersion = "v0.4.0";
-export const testCount = 60;
+  "https://github.com/maxmccutcheon59/watchwire/releases/tag/v0.5.0";
+export const productVersion = "v0.5.0";
+export const testCount = 80;

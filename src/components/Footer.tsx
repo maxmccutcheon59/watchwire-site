@@ -16,7 +16,7 @@ export default function Footer() {
             flag risky permissions — without sending your tree off-box.
           </p>
           <p className="mt-3 text-xs text-[var(--text-dim)]">
-            Founder: Max McCutcheon · Pre-revenue · Early OSS · MIT · v0.4.0
+            Founder: Max McCutcheon · Pre-revenue · Early OSS · MIT · v0.5.0
           </p>
           <p className="mt-2 text-xs text-[var(--text-muted)]">
             Contact:{" "}
@@ -64,6 +64,16 @@ export default function Footer() {
                   FAQ
                 </Link>
               </li>
+              <li>
+                <a
+                  href="https://maxmccutcheon59.github.io/sandrail-site/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[var(--accent)]"
+                >
+                  Sandrail (sibling)
+                </a>
+              </li>
             </ul>
           </div>
           <div>
@@ -73,12 +83,12 @@ export default function Footer() {
             <ul className="space-y-2 text-[var(--text-muted)]">
               <li>
                 <Link href="/privacy" className="hover:text-[var(--accent)]">
-                  Privacy
+                  Privacy (draft)
                 </Link>
               </li>
               <li>
                 <Link href="/terms" className="hover:text-[var(--accent)]">
-                  Terms
+                  Terms (draft)
                 </Link>
               </li>
               <li>

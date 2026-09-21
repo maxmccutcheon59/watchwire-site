@@ -5,7 +5,7 @@ import { cliRepo, cliRelease, productVersion } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Product",
   description:
-    "Watchwire v0.4.0 deep-dive: scan, proc, hygiene, pre-commit, GitHub Action (optional run-hygiene), SARIF/JSON, watchwire.toml, policy packs, entropy FP — local-first, no telemetry.",
+    "Watchwire v0.5.0 deep-dive: scan, proc, hygiene, pre-commit, GitHub Action (optional run-hygiene), SARIF/JSON, watchwire.toml, policy packs, entropy FP — local-first, no telemetry.",
 };
 
 const surfaces = [
@@ -126,7 +126,7 @@ export default function ProductPage() {
           </h2>
           <p className="mt-3 max-w-2xl text-[var(--text-muted)]">
             Python 3.10+, stdlib runtime, MIT. No network clients or telemetry
-            in the CLI by design. 60 tests · CI green (3.10 / 3.12 / 3.13 +
+            in the CLI by design. 80 tests · CI green (3.10 / 3.12 / 3.13 +
             ruff).
           </p>
           <div className="mt-10 grid gap-5 md:grid-cols-3">

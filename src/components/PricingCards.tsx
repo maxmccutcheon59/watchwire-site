@@ -9,13 +9,14 @@ const tiers = [
     period: "forever",
     badge: "OSS core",
     description:
-      "The local CLI + CI hooks you can run today — MIT, v0.4.0.",
+      "Full OSS CLI v0.5.0 — MIT, local-first, no telemetry. Always free.",
     features: [
       "watchwire scan · proc · hygiene",
       "Official pre-commit hook (shipped)",
       "Composite GitHub Action + SARIF/JSON + optional run-hygiene (shipped)",
       "`watchwire.toml` + student/indie/small-team policy packs (shipped)",
       "Entropy FP pass · no telemetry · no upload",
+      "watchwire init · .watchwireignore · scan --staged · suppressions (v0.5)",
       "Full source on GitHub",
     ],
     cta: { type: "link" as const, href: "https://github.com/maxmccutcheon59/watchwire", label: "Get the CLI" },
@@ -68,9 +69,9 @@ export default function PricingCards({ showNote = true }: { showNote?: boolean }
           <strong className="font-medium text-[var(--text)]">
             founding / early-OSS hypotheses
           </strong>{" "}
-          from the commercialization pack (~$12/mo Builder, ~$39/seat/mo Team).
-          Community stays free. No fake customers — checkout exists so Max can
-          take real founding payments when someone asks.
+          (~$12/mo Builder, ~$39/seat/mo Team). Community stays $0 forever. No
+          fake customers, ARR, waitlists, or SLA claims. On GitHub Pages, paid
+          CTAs are mailto; Stripe Checkout needs the Vercel path.
         </p>
       )}
       <div className="grid gap-5 md:grid-cols-3">
