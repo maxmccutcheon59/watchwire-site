@@ -40,7 +40,7 @@ jobs:
           NEXT_PUBLIC_SITE_URL: https://maxmccutcheon59.github.io/watchwire-site
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: out
 
