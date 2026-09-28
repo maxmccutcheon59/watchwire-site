@@ -1,15 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
+
+const noopSubscribe = () => () => {};
+const readSessionId = () =>
+  new URLSearchParams(window.location.search).get("session_id");
+const serverSessionId = () => null;
 
 /** Client-only session id display — keeps /success static-exportable. */
 export default function SessionIdNote() {
-  const [sessionId, setSessionId] = useState<string | null>(null);
-
-  useEffect(() => {
-    const id = new URLSearchParams(window.location.search).get("session_id");
-    if (id) setSessionId(id);
-  }, []);
+  const sessionId = useSyncExternalStore(noopSubscribe, readSessionId, serverSessionId);
 
   if (!sessionId) return null;
   return (
