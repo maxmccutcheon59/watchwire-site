@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-[rgba(7,10,9,0.85)] backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-5">
         <Link href="/" className="group flex items-center gap-2.5" aria-label="Watchwire home">
           <span
             aria-hidden
@@ -18,19 +18,19 @@ export default function Header() {
         <nav className="flex items-center gap-0.5 sm:gap-1 text-sm text-[var(--text-muted)]">
           <Link
             href="/product"
-            className="rounded-md px-2.5 py-1.5 hover:text-[var(--text)] sm:px-3"
+            className="rounded-md px-2 py-1.5 hover:text-[var(--text)] sm:px-3"
           >
             Product
           </Link>
           <Link
             href="/install"
-            className="rounded-md px-2.5 py-1.5 hover:text-[var(--text)] sm:px-3"
+            className="rounded-md px-2 py-1.5 hover:text-[var(--text)] sm:px-3"
           >
             Install
           </Link>
           <Link
             href="/pricing"
-            className="rounded-md px-2.5 py-1.5 hover:text-[var(--text)] sm:px-3"
+            className="rounded-md px-2 py-1.5 hover:text-[var(--text)] sm:px-3"
           >
             Pricing
           </Link>
@@ -38,7 +38,7 @@ export default function Header() {
             href="https://github.com/maxmccutcheon59/watchwire"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-ghost ml-1 !px-3 !py-1.5 text-sm"
+            className="btn-ghost ml-1 hidden !px-3 !py-1.5 text-sm sm:inline-flex"
           >
             GitHub
           </a>

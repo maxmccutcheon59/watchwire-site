@@ -8,9 +8,8 @@
 - Bumped marketed version / release links **v0.4.0 → v0.5.0**; test count **60 → 80** (pytest collect on tag).
 - Privacy / Terms marked **DRAFT — for lawyer review**.
 - A11y: contrast on dim text, focus-visible, home `aria-label`, OG image from polish branch, Terminal copy control.
-- Pricing amounts unchanged ($0 / ~$12 / ~$39) per Company Builder `FOUNDING_PRICING.md`.
-- No email-capture forms; Pages path uses mailto for paid CTAs.
+- 2026-09-28: paid tiers and Stripe Checkout removed; the CLI is free and the site sells nothing.
+- No email-capture forms; team interest goes to a mailto link.
 
 ## Needs Company Builder / Max
-- [ ] Update `watchwire-company/FOUNDING_PRICING.md` Community line from “v0.4.0” → “v0.5.0” (pricing numbers unchanged).
-- [ ] Lawyer review of Privacy/Terms before collecting personal data or live Stripe charges.
+- [ ] Lawyer review of Privacy/Terms before collecting any personal data.

@@ -131,7 +131,7 @@ export default function ProductPage() {
           </p>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {surfaces.map((s) => (
-              <div key={s.title} className="card p-5">
+              <div key={s.title} className="card min-w-0 p-5">
                 <p className="font-mono text-xs text-[var(--accent)]">{s.title}</p>
                 <pre className="mt-3 overflow-x-auto rounded-lg bg-[var(--bg)] px-3 py-2 font-mono text-xs text-[var(--text)]">
                   {s.cmd}

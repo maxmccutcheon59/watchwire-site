@@ -1,12 +1,12 @@
 # Deploy Watchwire marketing site
 
-Two paths. **Primary (zero keys):** GitHub Pages static export. **Secondary:** Vercel + Stripe test keys for live Checkout.
+Two paths. **Primary:** GitHub Pages static export. **Optional:** Vercel. Neither needs secrets — the site has no checkout or API routes.
 
 ---
 
-## Primary — GitHub Pages (no Stripe / Vercel keys)
+## Primary — GitHub Pages
 
-Static export via `npm run build:pages`. The `/api/checkout` Route Handler is stashed for that build only (API routes cannot ship in `output: 'export'`). Pricing still renders; paid CTAs degrade to mailto. Stripe code stays in the repo for the Vercel path.
+Static export via `npm run build:pages` (`output: 'export'`).
 
 ### One-time: enable Pages (Max)
 
@@ -35,61 +35,22 @@ npm run build:pages
 npx serve out   # optional; note basePath /watchwire-site
 ```
 
-Checkout buttons on this build say **Email about Builder/Team** and point to `MaxMcCutcheon1@outlook.com` — intentional.
-
 ---
 
-## Secondary — Vercel + Stripe (Checkout)
+## Optional — Vercel
 
-Use when Max wants live founding Checkout. Needs Stripe **test** keys (and later live keys only when books/tax are ready). Do not commit secrets.
-
-### 1. Import on Vercel
-
-1. Sign in to [Vercel](https://vercel.com) (GitHub).
-2. **Add New… → Project** → import `maxmccutcheon59/watchwire-site`.
-3. Framework preset: **Next.js**. Root directory: repo root. Build: `npm run build` (default — **not** `build:pages`).
-4. Do **not** set `STATIC_EXPORT` / `GITHUB_PAGES` on Vercel (leave unset so the API route ships).
-5. Set env in the Vercel project UI only.
-
-### 2. Environment variables
-
-Copy from `.env.example`. Set in Vercel → Project → Settings → Environment Variables:
-
-| Variable | Required | Notes |
-|----------|----------|--------|
-| `STRIPE_SECRET_KEY` | Yes for Checkout | `sk_test_...` for test mode |
-| `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` | Optional | `pk_test_...`; Session redirect works with secret alone |
-| `STRIPE_PRICE_BUILDER` | Optional | If unset, API uses `price_data` at **$12/mo** |
-| `STRIPE_PRICE_TEAM` | Optional | If unset, API uses `price_data` at **$39/seat/mo** |
-| `NEXT_PUBLIC_SITE_URL` | Recommended | Canonical URL, e.g. `https://watchwire.vercel.app` (no trailing slash) |
-
-Leave `BASE_PATH` / `NEXT_PUBLIC_BASE_PATH` empty on Vercel (site at domain root).
-
-Redeploy after changing env vars.
-
-### 3. Stripe test checkout
-
-1. Stripe Dashboard → **Test mode** on.
-2. Use test keys in Vercel / `.env.local`.
-3. On `/pricing`, click **Start Builder** or **Start Team**.
-4. Card: `4242 4242 4242 4242`, any future expiry, any CVC, any ZIP.
-5. Success → `/success`; cancel → `/cancel`.
-6. Without `STRIPE_SECRET_KEY`, `/api/checkout` returns **503** (site still builds and browses).
-
-### 4. After deploy
-
-- Confirm `https://YOUR_DOMAIN/robots.txt` and `/sitemap.xml`.
-- Confirm OG/Twitter meta on the homepage.
-- Keep copy honest: pre-revenue, no fake customers. Builder/Team = founding hypotheses.
+1. Sign in to [Vercel](https://vercel.com) and import `maxmccutcheon59/watchwire-site`.
+2. Framework preset **Next.js**, build command `npm run build` (not `build:pages`).
+3. Leave `STATIC_EXPORT`, `GITHUB_PAGES`, and `BASE_PATH` unset so the site serves at the domain root.
+4. Optionally set `NEXT_PUBLIC_SITE_URL` (no trailing slash) for canonical URLs, robots, and sitemap.
 
 ---
 
 ## Local verify before push
 
 ```bash
-cp .env.example .env.local   # optional; only needed for live Checkout
 npm install
-npm run build                # Vercel-style (API included)
+npm run build                # Vercel-style
 npm run build:pages          # Pages-style static export
 ```
 

@@ -56,7 +56,7 @@ const steps = [
 const faqs = [
   {
     q: "Is Watchwire a SaaS secret scanner?",
-    a: "No. Today it is a local-first OSS CLI. Paid Builder/Team tiers are founding hypotheses for policy + packaging later — local stays the default.",
+    a: "No. It is a local-first, MIT-licensed CLI. There is no hosted service and nothing to buy.",
   },
   {
     q: "Do you beat gitleaks or TruffleHog on coverage?",
@@ -64,15 +64,15 @@ const faqs = [
   },
   {
     q: "Does anything leave my machine?",
-    a: "The CLI has no network clients or telemetry by design. Findings are redacted in output. Stripe Checkout (Vercel path only) handles payment if you choose a paid founding tier.",
+    a: "The CLI has no network clients or telemetry by design. Findings are redacted in output.",
   },
   {
     q: "Who is this for right now?",
     a: "CS students and early-career engineers primarily; indie/solo Linux operators secondarily. Enterprise SecOps fleets and EDR replacements are out of scope for v0.",
   },
   {
-    q: "Are the paid prices final?",
-    a: "No. ~$12/mo Builder and ~$39/seat/mo Team are packaging hypotheses — labeled founding / early OSS. Community remains $0 forever for the OSS core.",
+    q: "Does it cost anything?",
+    a: "No. The CLI is free and MIT-licensed. There are no paid plans; if your team needs more, email the founder.",
   },
   {
     q: "Is this exploit / offensive tooling?",
@@ -115,12 +115,11 @@ export default function HomePage() {
               Product
             </Link>
             <Link href="/pricing" className="btn-ghost">
-              Founding pricing
+              Pricing
             </Link>
           </div>
           <p className="mt-5 text-xs text-[var(--text-dim)]">
-            Founder: Max McCutcheon · JMU CS · Pre-revenue · No fake customers,
-            waitlists, or ARR claims
+            Built by Max McCutcheon · JMU CS · MIT-licensed · No telemetry
           </p>
 
           <div className="terminal mt-12 max-w-2xl glow-accent">
@@ -132,7 +131,7 @@ export default function HomePage() {
                 demo · under 2 minutes
               </span>
             </div>
-            <pre className="p-4 text-[var(--text-muted)]">
+            <pre className="overflow-x-auto p-4 text-[var(--text-muted)]">
               <code>
                 <span className="text-[var(--text-dim)]">$</span>{" "}
                 <span className="text-[var(--text)]">pip install -e &quot;.[dev]&quot;</span>
@@ -206,7 +205,7 @@ export default function HomePage() {
           </p>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {commands.map((c) => (
-              <div key={c.title} className="card p-5">
+              <div key={c.title} className="card min-w-0 p-5">
                 <p className="font-mono text-xs text-[var(--accent)]">{c.title}</p>
                 <pre className="mt-3 overflow-x-auto rounded-lg bg-[var(--bg)] px-3 py-2 font-mono text-xs text-[var(--text)]">
                   {c.cmd}
@@ -306,7 +305,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl px-5 py-16 sm:py-20">
           <p className="section-label mb-3">Pricing</p>
           <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-            Community free · founding paid hypotheses
+            Free and open source
           </h2>
           <div className="mt-10">
             <PricingCards />
@@ -355,7 +354,7 @@ export default function HomePage() {
               href="https://github.com/maxmccutcheon59/watchwire"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-ghost"
+              className="btn-ghost max-w-full break-all text-center"
             >
               github.com/maxmccutcheon59/watchwire
             </a>

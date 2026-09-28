@@ -2,7 +2,7 @@
 /**
  * Static / GitHub Pages build.
  * Temporarily stashes src/app/api (Route Handlers are incompatible with
- * output: 'export') so the Stripe Checkout API stays in the repo for Vercel.
+ * output: 'export') if any are added later; the site has none today.
  */
 import { spawnSync } from "node:child_process";
 import fs from "node:fs";
