@@ -11,7 +11,7 @@ export default function TermsPage() {
       <p className="section-label mb-3">DRAFT · for lawyer review</p>
       <h1 className="text-3xl font-semibold tracking-tight">Terms of use</h1>
       <p className="mt-2 text-sm text-[var(--text-dim)]">
-        Last updated: September 21, 2026 · Pre-revenue founder tool
+        Last updated: September 21, 2026 · Free open-source tool
       </p>
       <p
         role="note"
@@ -37,16 +37,12 @@ export default function TermsPage() {
 
         <section>
           <h2 className="mb-2 text-lg font-medium text-[var(--text)]">
-            This site & paid tiers
+            No paid offerings
           </h2>
           <p>
-            Paid “Builder” and “Team” offerings are founding / early-OSS
-            packaging hypotheses. Some features listed on pricing cards are
-            roadmap. By checking out you acknowledge early-stage software: no
-            SLA, no uptime guarantee, and no claim of enterprise readiness.
-            Refunds for unused founding subscriptions can be requested via the
-            founder while the company is pre-revenue and solo-operated — we will
-            act in good faith.
+            Watchwire is free, MIT-licensed software. Nothing is sold on this
+            site. It is early-stage software provided as is: no SLA, no uptime
+            guarantee, and no claim of enterprise readiness.
           </p>
         </section>
 

@@ -11,7 +11,7 @@ export default function PrivacyPage() {
       <p className="section-label mb-3">DRAFT · for lawyer review</p>
       <h1 className="text-3xl font-semibold tracking-tight">Privacy</h1>
       <p className="mt-2 text-sm text-[var(--text-dim)]">
-        Last updated: September 21, 2026 · Pre-revenue founder tool
+        Last updated: September 21, 2026 · Free open-source tool
       </p>
       <p
         role="note"
@@ -31,8 +31,8 @@ export default function PrivacyPage() {
           <p>
             The Watchwire CLI is designed not to phone home. This marketing site
             may use standard hosting/analytics provided by your deploy platform
-            (e.g. Vercel). Payments go through Stripe. We do not sell personal
-            data.
+            (e.g. Vercel or GitHub Pages). There are no payments or accounts.
+            We do not sell personal data.
           </p>
         </section>
 
@@ -65,12 +65,7 @@ export default function PrivacyPage() {
               request logs as part of normal web hosting.
             </li>
             <li>
-              If you start Checkout, Stripe processes payment details under
-              Stripe&apos;s privacy policy. Watchwire receives limited billing
-              metadata (e.g. plan, email Stripe shares with the merchant).
-            </li>
-            <li>
-              We do not run a customer database or waitlist on this site today.
+              We do not run a customer database, waitlist, or checkout on this site.
             </li>
           </ul>
         </section>

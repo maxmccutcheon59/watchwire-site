@@ -16,7 +16,7 @@ export default function Footer() {
             flag risky permissions — without sending your tree off-box.
           </p>
           <p className="mt-3 text-xs text-[var(--text-dim)]">
-            Founder: Max McCutcheon · Pre-revenue · Early OSS · MIT · v0.5.0
+            Built by Max McCutcheon · Open source · MIT · v0.5.0
           </p>
           <p className="mt-2 text-xs text-[var(--text-muted)]">
             Contact:{" "}
